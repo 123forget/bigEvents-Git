@@ -26,11 +26,33 @@
                 <input type="text" class="input_txt" placeholder="邮箱/手机号">
                 <input type="password" class="input_pass" placeholder="密码">
                 <input type="submit" class="input_sub" value="登 录">
+                <div class="box" style="color:red;margin-left:33px"></div>
             </form>
         </div>
 
     </div> 
 
+    <script src="./js/jquery-1.12.4.min.js"></script>
+
+    <script>
+    $(function(){
+        $('.input_sub').on('click',function(e){
+            //阻止表单跳转
+            e.preventDefault();
+            //获取用户的输入的账户信息
+           var userName= $('.input_txt').val().trim();
+           //获取用户输入的密码
+           var password=$('.input_pass').val().trim();
+            //判断用户输入的是否为空，如果为空弹出提示信息
+           if(userName==""||password==''){
+            $('.box').html('账号或密码为空，请重新输入！！');
+            return;
+           }
+           //发送ajax请求
+           
+        });
+    });
+    </script>
 </body>
 
 </html>
